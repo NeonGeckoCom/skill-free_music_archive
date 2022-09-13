@@ -33,11 +33,15 @@ from bs4 import BeautifulSoup
 from ovos_plugin_common_play import MediaType, PlaybackType
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
     ocp_search
+from ovos_utils.log import LOG
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
     def __init__(self):
         super(FreeMusicArchiveSkill, self).__init__()
+        self.supported_media = [MediaType.MUSIC,
+                                MediaType.AUDIO,
+                                MediaType.GENERIC]
         self._base_url = "https://freemusicarchive.org/search?adv=1" \
                          "&music-filter-CC-attribution-only=1" \
                          "&music-filter-CC-attribution-sharealike=1" \
@@ -57,13 +61,14 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                  BeautifulSoup(requests.get(self.query_url(phrase)).content)
                  .find_all('div', class_='play-item gcol gid-electronic')]
         score += max(len(songs), 50)
-        results = [{'media_type': MediaType.AUDIO,
+        results = [{'media_type': MediaType.MUSIC,
                     'playback': PlaybackType.AUDIO,
                     'uri': song['playbackUrl'],
                     'title': song['title'],
                     'artist': song['artistName'],
                     'match_confidence': score,
                     } for song in songs]
+        LOG.info(f"Returning {len(results)} results")
         return results
 
 
