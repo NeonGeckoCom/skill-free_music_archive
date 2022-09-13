@@ -97,7 +97,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                     'artist': song['artistName'],
                     'match_confidence': score,
                     } for song in songs]
-        LOG.info(f"Returning {len(results)} results")
+        LOG.info(f"Returning {len(results)} results with confidence {score}")
         return results
 
 
