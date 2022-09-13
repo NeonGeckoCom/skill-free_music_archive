@@ -56,8 +56,6 @@ class TestSkill(unittest.TestCase):
             mkdir(cls.test_fs)
 
         # Override the configuration and fs paths to use the test directory
-        cls.skill.local_config = get_neon_local_config(cls.test_fs)
-        cls.skill.user_config = get_neon_user_config(cls.test_fs)
         cls.skill.settings_write_path = cls.test_fs
         cls.skill.file_system.path = cls.test_fs
         cls.skill._init_settings()
