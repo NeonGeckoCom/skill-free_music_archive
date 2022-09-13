@@ -1,10 +1,15 @@
 {
-    "title": "{title}",
+    "title": "Free Music Archive",
     "url": "https://github.com/NeonGeckoCom/skill-free_music_archive",
-    "summary": "{summary}",
-    "short_description": "{summary}",
-    "description": "{description}",
-    "examples": [],
+    "summary": "[OCP](https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin) skill to play royalty free music from [Free Music Archive](https://freemusicarchive.org/).",
+    "short_description": "[OCP](https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin) skill to play royalty free music from [Free Music Archive](https://freemusicarchive.org/).",
+    "description": "Search and play royalty free music from [Free Music Archive](https://freemusicarchive.org/).",
+    "examples": [
+        "play jazz",
+        "play classical music",
+        "play electronic music",
+        "play mozart"
+    ],
     "desktopFile": false,
     "warning": "",
     "systemDeps": false,
@@ -26,18 +31,23 @@
     ],
     "branch": "master",
     "license": "BSD-3-Clause",
-    "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
-    "category": "category** {categories}",
+    "icon": "https://freemusicarchive.org/legacy/fma-smaller.jpg",
+    "category": "Music",
     "categories": [
-        "category** {categories}"
+        "Music"
     ],
     "tags": [
-        "tag",
-        "tag2"
+        "music",
+        "Royalty Free",
+        "Free Music Archive",
+        "Neongecko",
+        "NeonAI",
+        "OCP",
+        "Common Play"
     ],
     "credits": [
         "NeonGeckoCom",
-        "{author_name}"
+        "NeonDaniel"
     ],
     "skillname": "skill-free_music_archive",
     "authorname": "NeonGeckoCom",
