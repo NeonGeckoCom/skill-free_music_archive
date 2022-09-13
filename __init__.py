@@ -30,6 +30,7 @@ import json
 import requests
 
 from bs4 import BeautifulSoup
+from neon_utils.file_utils import load_commented_file
 from ovos_plugin_common_play import MediaType, PlaybackType
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
     ocp_search
@@ -53,18 +54,42 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
     def query_url(self, search_term: str):
         return f'{self._base_url}&quicksearch={search_term}&&&'
 
+    def _search_songs(self, phrase):
+        return [json.loads(song['data-track-info']) for song in
+                BeautifulSoup(requests.get(self.query_url(phrase)).content)
+                .find_all('div', class_='play-item gcol gid-electronic')]
+
     @ocp_search()
     def search_fma(self, phrase, media_type=MediaType.GENERIC):
         score = 0
         if media_type == MediaType.MUSIC:
             score += 15
-        songs = [json.loads(song['data-track-info']) for song in
-                 BeautifulSoup(requests.get(self.query_url(phrase)).content)
-                 .find_all('div', class_='play-item gcol gid-electronic')]
+        songs = self._search_songs(phrase)
+        if not songs:
+            # Nothing matched, try removing articles
+            LOG.info(f"Trying search with articles removed")
+            articles_voc = self.find_resource("genre.voc", lang=self.lang)
+            articles = load_commented_file(articles_voc).split('\n')
+            cleaned_phrase = ' '.join((word for word in phrase.split()
+                                       if word not in articles))
+            score -= 5
+            songs = self._search_songs(cleaned_phrase)
+        if not songs:
+            LOG.info(f"Trying search by genre")
+            # Nothing matched, try parsing a genre
+            genres_voc = self.find_resource("genre.voc", lang=self.lang)
+            genres = load_commented_file(genres_voc).split('\n')
+            for g in genres:
+                if g in phrase:
+                    score += 5
+                    songs = self._search_songs(g)
+                    break
+
         score += max(len(songs), 50)
         results = [{'media_type': MediaType.MUSIC,
                     'playback': PlaybackType.AUDIO,
                     'image': self._image_url,
+                    'skill_icon': self._image_url,
                     'uri': song['playbackUrl'],
                     'title': song['title'],
                     'artist': song['artistName'],
