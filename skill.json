@@ -1,0 +1,44 @@
+{
+    "title": "{title}",
+    "url": "https://github.com/NeonGeckoCom/skill-free_music_archive",
+    "summary": "{summary}",
+    "short_description": "{summary}",
+    "description": "{description}",
+    "examples": [],
+    "desktopFile": false,
+    "warning": "",
+    "systemDeps": false,
+    "requirements": {
+        "python": [
+            "ovos-workshop~=0.0.7"
+        ],
+        "system": {},
+        "skill": []
+    },
+    "incompatible_skills": [],
+    "platforms": [
+        "i386",
+        "x86_64",
+        "ia64",
+        "arm64",
+        "arm"
+    ],
+    "branch": "master",
+    "license": "BSD-3-Clause",
+    "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
+    "category": "category** {categories}",
+    "categories": [
+        "category** {categories}"
+    ],
+    "tags": [
+        "tag",
+        "tag2"
+    ],
+    "credits": [
+        "NeonGeckoCom",
+        "{author_name}"
+    ],
+    "skillname": "skill-free_music_archive",
+    "authorname": "NeonGeckoCom",
+    "foldername": null
+}
