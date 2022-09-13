@@ -27,8 +27,11 @@
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import json
+from typing import List
+
 import requests
 
+from urllib.parse import quote
 from bs4 import BeautifulSoup
 from neon_utils.file_utils import load_commented_file
 from ovos_plugin_common_play import MediaType, PlaybackType
@@ -51,16 +54,32 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                          "&music-filter-commercial-allowed=1"
         self._image_url = "https://freemusicarchive.org/legacy/fma-smaller.jpg"
 
-    def query_url(self, search_term: str):
-        return f'{self._base_url}&quicksearch={search_term}&&&'
+    def query_url(self, search_term: str) -> str:
+        """
+        Build a query URL for the specified query
+        :param search_term: phrase to search
+        :returns: str URL to query for results
+        """
+        return f'{self._base_url}&quicksearch={quote(search_term)}&&&'
 
-    def _search_songs(self, phrase):
+    def _search_songs(self, phrase) -> List[dict]:
+        """
+        Get a list of songs for the specified search phrase
+        :param phrase: phrase to search
+        :returns: list of dict song information
+        """
         return [json.loads(song['data-track-info']) for song in
                 BeautifulSoup(requests.get(self.query_url(phrase)).content)
                 .find_all('div', class_='play-item gcol gid-electronic')]
 
     @ocp_search()
-    def search_fma(self, phrase, media_type=MediaType.GENERIC):
+    def search_fma(self, phrase, media_type=MediaType.GENERIC) -> List[dict]:
+        """
+        OCP Search handler to return results for a user request
+        :param phrase: search phrase from user
+        :param media_type: user requested media type
+        :returns: list of dict search results
+        """
         score = 0
         if media_type == MediaType.MUSIC:
             score += 15

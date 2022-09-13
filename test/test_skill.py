@@ -34,6 +34,7 @@ from os import mkdir
 from os.path import dirname, join, exists
 from mock import Mock
 from mycroft_bus_client import Message
+from ovos_plugin_common_play import MediaType
 from ovos_utils.messagebus import FakeBus
 
 from mycroft.skills.skill_loader import SkillLoader
@@ -64,17 +65,9 @@ class TestSkill(unittest.TestCase):
         cls.skill.speak = Mock()
         cls.skill.speak_dialog = Mock()
 
-        # TODO: Put any skill method overrides here
-
     def setUp(self):
         self.skill.speak.reset_mock()
         self.skill.speak_dialog.reset_mock()
-
-        # TODO: Put any cleanup here that runs before each test case
-
-    def tearDown(self) -> None:
-        # TODO: Put any cleanup here that runs after each test case
-        pass
 
     @classmethod
     def tearDownClass(cls) -> None:
@@ -85,9 +78,53 @@ class TestSkill(unittest.TestCase):
         from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
 
         self.assertIsInstance(self.skill, OVOSCommonPlaybackSkill)
-        # TODO: Test parameters declared in skill init/initialize here
+        self.assertIsInstance(self.skill._base_url, str)
+        self.assertIsInstance(self.skill._image_url, str)
 
-    # TODO: Add tests for all intent handlers and support methods here
+    def test_query_url(self):
+        # Test simple URL
+        url = self.skill.query_url("test")
+        self.assertIn("test", url)
+        self.assertTrue(url.startswith(self.skill._base_url))
+
+        # Test multi-word search
+        url = self.skill.query_url("two word test")
+        self.assertTrue(url.startswith(self.skill._base_url))
+        self.assertIn("two%20word%20test", url)
+
+    def test_search_songs(self):
+        songs = self.skill._search_songs("jazz")
+        self.assertIsInstance(songs, list)
+        for s in songs:
+            self.assertIsInstance(s, dict)
+            self.assertIsInstance(s['playbackUrl'], str)
+            self.assertIsInstance(s['title'], str)
+            self.assertIsInstance(s['artistName'], str)
+
+    def test_search_fma(self):
+        # Simple search
+        results = self.skill.search_fma("jazz", MediaType.MUSIC)
+        self.assertIsInstance(results, list)
+        self.assertTrue(results)
+        for r in results:
+            self.assertIsInstance(r, dict)
+            self.assertGreaterEqual(r['match_confidence'], 15)
+
+        # Remove articles search
+        results = self.skill.search_fma("some jazz", MediaType.MUSIC)
+        self.assertIsInstance(results, list)
+        self.assertTrue(results)
+        for r in results:
+            self.assertIsInstance(r, dict)
+            self.assertGreaterEqual(r['match_confidence'], 10)
+
+        # Genre search
+        results = self.skill.search_fma("jazz song", MediaType.MUSIC)
+        self.assertIsInstance(results, list)
+        self.assertTrue(results)
+        for r in results:
+            self.assertIsInstance(r, dict)
+            self.assertGreaterEqual(r['match_confidence'], 15)
 
 
 if __name__ == '__main__':
