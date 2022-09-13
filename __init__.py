@@ -26,12 +26,45 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill
+import json
+import requests
+
+from bs4 import BeautifulSoup
+from ovos_plugin_common_play import MediaType, PlaybackType
+from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
+    ocp_search
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
     def __init__(self):
         super(FreeMusicArchiveSkill, self).__init__()
+        self._base_url = "https://freemusicarchive.org/search?adv=1" \
+                         "&music-filter-CC-attribution-only=1" \
+                         "&music-filter-CC-attribution-sharealike=1" \
+                         "&music-filter-CC-attribution-noderivatives=1" \
+                         "&music-filter-public-domain=1" \
+                         "&music-filter-commercial-allowed=1"
+
+    def query_url(self, search_term: str):
+        return f'{self._base_url}&quicksearch={search_term}&&&'
+
+    @ocp_search()
+    def search_fma(self, phrase, media_type=MediaType.GENERIC):
+        score = 0
+        if media_type == MediaType.MUSIC:
+            score += 15
+        songs = [json.loads(song['data-track-info']) for song in
+                 BeautifulSoup(requests.get(self.query_url(phrase)).content)
+                 .find_all('div', class_='play-item gcol gid-electronic')]
+        score += max(len(songs), 50)
+        results = [{'media_type': MediaType.AUDIO,
+                    'playback': PlaybackType.AUDIO,
+                    'uri': song['playbackUrl'],
+                    'title': song['title'],
+                    'artist': song['artistName'],
+                    'match_confidence': score,
+                    } for song in songs]
+        return results
 
 
 def create_skill():
