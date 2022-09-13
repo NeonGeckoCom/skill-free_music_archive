@@ -66,15 +66,17 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
             score += 15
         songs = self._search_songs(phrase)
         if not songs:
+            self.extend_timeout(1)
             # Nothing matched, try removing articles
             LOG.info(f"Trying search with articles removed")
-            articles_voc = self.find_resource("genre.voc", lang=self.lang)
+            articles_voc = self.find_resource("articles.voc", lang=self.lang)
             articles = load_commented_file(articles_voc).split('\n')
             cleaned_phrase = ' '.join((word for word in phrase.split()
                                        if word not in articles))
             score -= 5
             songs = self._search_songs(cleaned_phrase)
         if not songs:
+            self.extend_timeout(1)
             LOG.info(f"Trying search by genre")
             # Nothing matched, try parsing a genre
             genres_voc = self.find_resource("genre.voc", lang=self.lang)
