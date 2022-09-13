@@ -48,6 +48,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                          "&music-filter-CC-attribution-noderivatives=1" \
                          "&music-filter-public-domain=1" \
                          "&music-filter-commercial-allowed=1"
+        self._image_url = "https://freemusicarchive.org/legacy/fma-smaller.jpg"
 
     def query_url(self, search_term: str):
         return f'{self._base_url}&quicksearch={search_term}&&&'
@@ -63,6 +64,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
         score += max(len(songs), 50)
         results = [{'media_type': MediaType.MUSIC,
                     'playback': PlaybackType.AUDIO,
+                    'image': self._image_url,
                     'uri': song['playbackUrl'],
                     'title': song['title'],
                     'artist': song['artistName'],

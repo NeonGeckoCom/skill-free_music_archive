@@ -1,12 +1,16 @@
-# <img src='https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png' card_color="#FF8600" width="50" style="vertical-align:bottom">{title}
+# <img src='https://freemusicarchive.org/legacy/fma-smaller.jpg' card_color="#FF8600" width="50" style="vertical-align:center">Free Music Archive
 ## Summary
-{summary}
+[OCP](https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin) skill to play royalty free music
+from [Free Music Archive](https://freemusicarchive.org/).
 
 ## Description
-{description}
+Search and play royalty free music from [Free Music Archive](https://freemusicarchive.org/).
 
 ## Examples
-{list of example utterances}
+- Play jazz
+- Play classical music
+- Play electronic music
+- Play Mozart
 
 ## Contact Support
 Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](https://help.github.com/en/articles/creating-an-issue)
@@ -14,11 +18,16 @@ Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](h
 ## Credits
 
 [NeonGeckoCom](https://github.com/NeonGeckoCom)
-{author_name}
+[NeonDaniel](https://github.com/NeonDaniel)
 
 ## Category
-**category** {categories}
+**Music**
 
 ## Tags
-#tag
-#tag2
+#music
+#Royalty Free
+#Free Music Archive
+#Neongecko
+#NeonAI
+#OCP
+#Common Play
