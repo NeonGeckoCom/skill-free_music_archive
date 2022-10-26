@@ -7,10 +7,10 @@ from [Free Music Archive](https://freemusicarchive.org/).
 Search and play royalty free music from [Free Music Archive](https://freemusicarchive.org/).
 
 ## Examples
-- Play jazz
-- Play classical music
-- Play electronic music
-- Play Mozart
+- Play jazz.
+- Play classical music.
+- Play electronic music.
+- Play Mozart.
 
 ## Contact Support
 Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](https://help.github.com/en/articles/creating-an-issue)
