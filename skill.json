@@ -5,10 +5,10 @@
     "short_description": "[OCP](https://github.com/OpenVoiceOS/ovos-ocp-audio-plugin) skill to play royalty free music from [Free Music Archive](https://freemusicarchive.org/).",
     "description": "Search and play royalty free music from [Free Music Archive](https://freemusicarchive.org/).",
     "examples": [
-        "play jazz",
-        "play classical music",
-        "play electronic music",
-        "play mozart"
+        "Play jazz.",
+        "Play classical music.",
+        "Play electronic music.",
+        "Play Mozart."
     ],
     "desktopFile": false,
     "warning": "",
