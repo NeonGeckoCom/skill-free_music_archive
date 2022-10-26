@@ -70,7 +70,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
         """
         return [json.loads(song['data-track-info']) for song in
                 BeautifulSoup(requests.get(self.query_url(phrase)).content)
-                .find_all('div', class_='play-item gcol gid-electronic')]
+                .find_all('div', class_='play-item')]
 
     @ocp_search()
     def search_fma(self, phrase, media_type=MediaType.GENERIC) -> List[dict]:
