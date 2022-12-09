@@ -27,7 +27,7 @@ Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](h
 #music
 #Royalty Free
 #Free Music Archive
-#Neongecko
 #NeonAI
+#NeonGecko Original
 #OCP
 #Common Play
