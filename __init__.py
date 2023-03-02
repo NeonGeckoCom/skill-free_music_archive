@@ -37,7 +37,9 @@ from neon_utils.file_utils import load_commented_file
 from ovos_plugin_common_play import MediaType, PlaybackType
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
     ocp_search
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
+from ovos_utils.process_utils import RuntimeRequirements
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
@@ -53,6 +55,18 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                          "&music-filter-public-domain=1" \
                          "&music-filter-commercial-allowed=1"
         self._image_url = "https://freemusicarchive.org/legacy/fma-smaller.jpg"
+
+    @classproperty
+    def runtime_requirements(self):
+        return RuntimeRequirements(network_before_load=False,
+                                   internet_before_load=False,
+                                   gui_before_load=False,
+                                   requires_internet=True,
+                                   requires_network=True,
+                                   requires_gui=False,
+                                   no_internet_fallback=False,
+                                   no_network_fallback=False,
+                                   no_gui_fallback=True)
 
     def query_url(self, search_term: str) -> str:
         """

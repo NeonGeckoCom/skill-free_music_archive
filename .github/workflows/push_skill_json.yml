@@ -1,0 +1,13 @@
+# Update skill.json at neon_skills repository
+name: Update neon_skills
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - master
+
+jobs:
+  push_skill_json:
+    uses: neongeckocom/.github/.github/workflows/skill_update_meta_repo.yml@master
+    secrets: inherit

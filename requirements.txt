@@ -1,4 +1,5 @@
 ovos-workshop~=0.0.7
 beautifulsoup4~=4.11
 neon-utils~=1.0
-ovos-plugin-common-play~=0.0
+ovos-plugin-common-play~=0.0.3
+ovos_utils~=0.0.28
