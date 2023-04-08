@@ -54,7 +54,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                          "&music-filter-CC-attribution-noderivatives=1" \
                          "&music-filter-public-domain=1" \
                          "&music-filter-commercial-allowed=1"
-        self._image_url = "https://freemusicarchive.org/legacy/fma-smaller.jpg"
+        self._image_url = "https://ia802804.us.archive.org/16/items/freemusicarchive/freemusicarchive_itemimage.jpg"
 
     @classproperty
     def runtime_requirements(self):
