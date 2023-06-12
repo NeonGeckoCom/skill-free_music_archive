@@ -33,7 +33,7 @@ import pytest
 from os import mkdir
 from os.path import dirname, join, exists
 from mock import Mock
-from mycroft_bus_client import Message
+from ovos_bus_client import Message
 from ovos_plugin_common_play import MediaType
 from ovos_utils.messagebus import FakeBus
 
