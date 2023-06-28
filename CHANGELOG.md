@@ -1,13 +1,20 @@
 # Changelog
 
-## [0.1.1a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/0.1.1a1) (2023-04-20)
+## [0.1.2a2](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/0.1.2a2) (2023-06-15)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/0.1.0...0.1.1a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/0.1.2a1...0.1.2a2)
 
 **Merged pull requests:**
 
-- Update GH Automation [\#16](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/16) ([NeonDaniel](https://github.com/NeonDaniel))
-- Update image URL to archive.org reference [\#14](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/14) ([NeonDaniel](https://github.com/NeonDaniel))
+- Deprecate `create_skill` method and update `__init__` for best practices [\#19](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/19) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [0.1.2a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/0.1.2a1) (2023-06-12)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/0.1.1...0.1.2a1)
+
+**Merged pull requests:**
+
+- Refactor mycroft-messagebus-client to ovos-bus-client [\#18](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/18) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
