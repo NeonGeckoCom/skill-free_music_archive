@@ -43,8 +43,8 @@ from ovos_utils.process_utils import RuntimeRequirements
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
-    def __init__(self):
-        super(FreeMusicArchiveSkill, self).__init__()
+    def __init__(self, **kwargs):
+        OVOSCommonPlaybackSkill.__init__(self, **kwargs)
         self.supported_media = [MediaType.MUSIC,
                                 MediaType.AUDIO,
                                 MediaType.GENERIC]
@@ -132,7 +132,3 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                     } for song in songs]
         LOG.info(f"Returning {len(results)} results with confidence {score}")
         return results
-
-
-def create_skill():
-    return FreeMusicArchiveSkill()
