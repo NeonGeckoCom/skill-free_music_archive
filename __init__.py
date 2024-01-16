@@ -34,7 +34,7 @@ import requests
 from urllib.parse import quote
 from bs4 import BeautifulSoup
 from neon_utils.file_utils import load_commented_file
-from ovos_plugin_common_play import MediaType, PlaybackType
+from ovos_utils.ocp import MediaType, PlaybackType
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
     ocp_search
 from ovos_utils import classproperty
@@ -43,11 +43,8 @@ from ovos_utils.process_utils import RuntimeRequirements
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
-    def __init__(self, **kwargs):
-        OVOSCommonPlaybackSkill.__init__(self, **kwargs)
-        self.supported_media = [MediaType.MUSIC,
-                                MediaType.AUDIO,
-                                MediaType.GENERIC]
+    def __init__(self, *args, **kwargs):
+        self.supported_media = [MediaType.MUSIC]
         self._base_url = "https://freemusicarchive.org/search?adv=1" \
                          "&music-filter-CC-attribution-only=1" \
                          "&music-filter-CC-attribution-sharealike=1" \
@@ -55,6 +52,7 @@ class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
                          "&music-filter-public-domain=1" \
                          "&music-filter-commercial-allowed=1"
         self._image_url = "https://ia802804.us.archive.org/16/items/freemusicarchive/freemusicarchive_itemimage.jpg"
+        super().__init__(*args, **kwargs)
 
     @classproperty
     def runtime_requirements(self):
