@@ -1,20 +1,20 @@
 # Changelog
 
-## [0.1.2a2](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/0.1.2a2) (2023-06-15)
+## [1.0.1a2](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.1a2) (2024-04-02)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/0.1.2a1...0.1.2a2)
-
-**Merged pull requests:**
-
-- Deprecate `create_skill` method and update `__init__` for best practices [\#19](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/19) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [0.1.2a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/0.1.2a1) (2023-06-12)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/0.1.1...0.1.2a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.1a1...1.0.1a2)
 
 **Merged pull requests:**
 
-- Refactor mycroft-messagebus-client to ovos-bus-client [\#18](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/18) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update test dependency to stable version [\#23](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/23) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.1a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.1a1) (2024-02-05)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.0...1.0.1a1)
+
+**Merged pull requests:**
+
+- Support ovos-utils 0.1 [\#22](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/22) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
