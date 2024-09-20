@@ -34,13 +34,16 @@ import requests
 from urllib.parse import quote
 from bs4 import BeautifulSoup
 from neon_utils.file_utils import load_commented_file
-from ovos_utils.ocp import MediaType, PlaybackType
 from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
     ocp_search
 from ovos_utils import classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
-
+try:
+    from ovos_utils.ocp import MediaType, PlaybackType
+except ImportError:
+    # TODO: Pin ovos-utils 0.1 and remove this once supported in NeonCore
+    from ovos_workshop.backwards_compat import MediaType, PlaybackType
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):
     def __init__(self, **kwargs):
