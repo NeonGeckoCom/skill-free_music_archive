@@ -28,7 +28,7 @@
 
 import pytest
 
-from ovos_plugin_common_play import MediaType
+from ovos_workshop.backwards_compat import MediaType
 from neon_minerva.tests.skill_unit_test_base import SkillTestCase
 
 
