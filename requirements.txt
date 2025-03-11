@@ -1,5 +1,4 @@
 ovos-workshop~=0.0,>=0.0.7
 beautifulsoup4~=4.11
-# TODO: network patching dependency resolution
-neon-utils[network]~=1.0,>=1.11.1a3
-ovos-utils~=0.0, >=0.0.28
+neon-utils[network]~=1.12
+ovos-utils~=0.0,>=0.0.28
