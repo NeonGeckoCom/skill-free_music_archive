@@ -39,11 +39,8 @@ from ovos_workshop.skills.common_play import OVOSCommonPlaybackSkill, \
 from ovos_utils import classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
-try:
-    from ovos_utils.ocp import MediaType, PlaybackType
-except ImportError:
-    # TODO: Update import to ovos-utils when 0.1 is pinned as a minimum version
-    from ovos_workshop.decorators.ocp import MediaType, PlaybackType
+from ovos_utils.ocp import MediaType, PlaybackType
+
 
 
 class FreeMusicArchiveSkill(OVOSCommonPlaybackSkill):

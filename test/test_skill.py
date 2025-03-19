@@ -28,8 +28,7 @@
 
 import pytest
 
-# TODO: Update import to ovos-utils when 0.1 is pinned as a minimum version
-from ovos_workshop.decorators.ocp import MediaType
+from ovos_utils.ocp import MediaType
 from neon_minerva.tests.skill_unit_test_base import SkillTestCase
 
 
