@@ -1,36 +1,12 @@
 # Changelog
 
-## [1.0.2a4](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.2a4) (2025-03-19)
+## [1.0.3a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.3a1) (2025-07-31)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.2a3...1.0.2a4)
-
-**Merged pull requests:**
-
-- Update dependencies and remove backwards-compat exception handling [\#28](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/28) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.2a3](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.2a3) (2025-03-11)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.2a2...1.0.2a3)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.2...1.0.3a1)
 
 **Merged pull requests:**
 
-- Update automation, gitignore, and license notices [\#27](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/27) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.2a2](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.2a2) (2024-09-20)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.2a1...1.0.2a2)
-
-**Merged pull requests:**
-
-- Update imports to drop ovos-common-play dependency [\#26](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/26) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.2a1](https://github.com/NeonGeckoCom/skill-free_music_archive/tree/1.0.2a1) (2024-09-17)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-free_music_archive/compare/1.0.1...1.0.2a1)
-
-**Merged pull requests:**
-
-- Update OVOS depdendencies for 0.x compat [\#25](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/25) ([NeonDaniel](https://github.com/NeonDaniel))
+- ukrainian translation [\#30](https://github.com/NeonGeckoCom/skill-free_music_archive/pull/30) ([NeonDmitry](https://github.com/NeonDmitry))
 
 
 
